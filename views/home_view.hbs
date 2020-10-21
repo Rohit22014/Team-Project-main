@@ -1,0 +1,317 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Market Place</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/all.css" rel="stylesheet" type="text/css"/>  
+	<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+	<style>
+		#border
+		{
+			background-color: #42444e;
+			height: 15%;
+			width: 100%;
+			color: white;		
+		}
+		body{
+			background-color:white;
+		}
+		#p1{
+			top:35%;
+			left:23%;
+			width:800px;
+			height:200px;
+			text-align:center;
+			word-wrap: break-word;
+			overflow:auto;
+			position:absolute;
+			font-family:'Orbitron';
+		}
+		#p2{
+			top:60%;
+			left:23%;
+			width:800px;
+			height:200px;
+			text-align:center;
+			word-wrap: break-word;
+			overflow:auto;
+			position:absolute;
+			font-family:'Orbitron';
+		}
+		#p3{
+			top:90%;
+			left:23%;
+			width:800px;
+			height:200px;
+			text-align:center;
+			word-wrap: break-word;
+			overflow:auto;
+			position:absolute;
+			font-family:'Orbitron';
+		}
+		#login{
+			top:5%;
+			right:10%;
+			position: absolute;
+			background-color:#42444e;
+			border-color: #42444e; 
+			font-family:'Orbitron';
+		}
+		#registration:hover{
+			border-color: white;
+		}
+		#login:hover{
+			border-color: white;
+		}
+		#registration{
+			top:5%;
+			right:15%;
+			position: absolute;
+			background-color:#42444e;
+			border-color: #42444e; 
+			font-family:'Orbitron';
+		}
+		#logout{
+			top:5%;
+			right:10%;
+			position: absolute;
+			background-color:#42444e;
+			border-color: #42444e; 
+			font-family:'Orbitron';
+			visibility: hidden;
+		}
+		#header1{
+			top:5%;
+			left:6%;
+			position: absolute;
+			font-family:'Orbitron';
+		}
+		#Search{
+			width: 400px;
+			top:37px;
+			right:38%;
+			position: absolute;
+			text-align: center;
+		}
+		#databaseSearch{
+			top:37px;
+			right:35%;
+			width: 46px;
+			height: 42px;
+			background-color: white;
+			border-color: white;
+			position: absolute;
+		}
+    #resetLink{
+      color: blue;
+      cursor: pointer;
+    }
+    .encrypted{
+      visibility: hidden;
+    }
+	</style>
+</head>
+<body>
+		<div id="border">
+			<h3 id="header1"><a class="breadcrumb-item text-light" href="/">The Market Place</a> <span class="badge badge-secondary" id="databaseFilterNotice"></span></h3>
+			<div class="input-group mb-3">
+		        <input class="py-2 border-left-0 border" id="Search" type="search" placeholder="Find The Products Your Looking for...">
+		        <div class="input-group-append">
+		        	<button class="input-group-text" id="databaseSearch" for="inputGroupSelect01"><i class="fa fa-search"></i></button> 
+		        </div>
+	    	</div>
+			<button id="registration" class="btn btn-primary mr-5" data-toggle="modal" data-target="#addModal">Registration</button>
+      		<button id="login" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Log in</button>
+      		<button id="logout" class="btn btn-primary">Log out</button>
+		</div>	
+		{{#each results}}
+        <p id="Username" class="encrypted">{{Username}}</p>
+        <p id="Password" class="encrypted">{{Password}}</p>
+        {{/each}}
+		<div id="p1">Description or Images</div>
+		<div id="p2">
+		Products maybe</div>
+		<div id="p3">
+		Policies or something</div>
+
+		<form id="addForm" action="/" method="POST">
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel"><strong>Registration</strong></h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+             	<div class="form-group">
+                   <input type="text" name="Username" class="form-control" placeholder="Username" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="Password" class="form-control" placeholder="Password" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="Title" class="form-control" placeholder="Title" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="FirstNames" class="form-control" placeholder="First Name(s)" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="Surname" class="form-control" placeholder="Surname" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="Mobile" class="form-control" placeholder="Mobile Phone" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="Email" class="form-control" placeholder="Email" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="AddressLine1" class="form-control" placeholder="Address Line 1" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="AddressLine2" class="form-control" placeholder="Address Line 2" >
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="Town" class="form-control" placeholder="Town" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="countyORcity" class="form-control" placeholder="city/county" required>
+               </div>
+			   <div class="form-group">
+                   <input type="text" name="EIRCODE" class="form-control" placeholder="EIRCODE" >
+               </div>
+             </div>
+             <div class="modal-footer">
+             	<button type="submit" class="btn btn-primary">Save</button>
+               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+             </div>
+           </div>
+         </div>
+        </div>
+    </form>
+    <form id="loginForm" action="/Customers" method="GET">
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel"><strong>Log in</strong></h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+             	<div class="form-group">
+                   <input type="text" name="Username" class="form-control" placeholder="Username" required>
+               </div>
+               <div class="form-group">
+                   <input type="password" name="Password" class="form-control" placeholder="Password" required>
+               </div>
+             </div>
+             <div class="modal-footer">
+              <div id=resetLink>Forgot Password?</div>
+             	<button type="submit" class="btn btn-primary">Sign in</button>
+               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+             </div>
+           </div>
+         </div>
+        </div>
+    </form>
+
+    <!-- Successful and failed operation popups -->
+    <div class="modal fade" id="successAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="alert alert-success" role="alert">
+                <strong>Oh Great!</strong> Registration was Successful!
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="errorAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh No!</strong> Registration was Unsuccessful, Please try again!
+            </div>
+        </div>
+    </div>
+
+<script src="/assets/js/jquery-3.5.0.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script>     
+	 document.getElementById('databaseSearch').disabled=true;
+	 var addForm = $("#addForm");
+        addForm.submit(function(e){
+            e.preventDefault(); 
+            $.ajax({
+                type: addForm.attr('method'),
+                url:  addForm.attr('action'),
+                data: addForm.serialize(), 
+                success: function (data) {
+                    $('#successAlert').modal('show');
+                    var timer = setTimeout(function() {
+                        $(location).attr('href', '/')
+                    }, 3000);
+                },
+                error: function (data) {
+                    $('#errorAlert').modal('show');
+                    var timer = setTimeout(function() {
+                        $(location).attr('href', '/')
+                    }, 3000);
+                },
+            });
+            $('#addModal').modal('hide');
+        });
+        var loginForm = $("#loginForm");
+        loginForm.submit(function(e){
+            e.preventDefault(); 
+            $.ajax({
+                type: loginForm.attr('method'),
+                url:  loginForm.attr('action'),
+                data: loginForm.serialize(), 
+                success: function (data) {
+                    document.getElementById("registration").style.visibility="hidden";  
+                   	document.getElementById("login").style.visibility="hidden";   
+                   	document.getElementById("logout").style.visibility="visible";                    
+                                   
+                },
+                error: function (data) {
+                    $('#loginModal').modal('show');
+                },
+            });
+            $('#loginModal').modal('hide');
+        });
+        $("logout").click(function(){
+					document.getElementById("registration").style.visibility="visible";  
+                   	document.getElementById("login").style.visibility="visible";   
+                   	document.getElementById("logout").style.visibility="hidden";		
+        });
+        $("#databaseSearch").on('click',function() {
+            var search = $("#Search").val().replace(/[|&;$%@"<>()+,^  ]/g, "");
+            if (search) {
+                $(location).attr('href', '/Products/ProductName'+'/'+search);
+            } else {
+                $(location).attr('href', '/');
+            }
+        });
+         $("#resetLink").on('click',function() {
+            $(location).attr('href', '/Reset');
+        });
+        $("#Search").on('keyup',function() {
+            var search = $("#Search").val().replace(/[|&;$%@"<>()+,^  ]/g, "");
+            if (search.length >0) {
+                document.getElementById('databaseSearch').disabled=false;
+                document.getElementById('databaseSearch').style.cursor="pointer";
+            } else {
+                document.getElementById('databaseSearch').disabled=true;
+                document.getElementById('databaseSearch').style.cursor="default";
+            }
+        });
+		    document.getElementById('Search').addEventListener("keyup", function(event) {
+          if (event.keyCode === 13){
+            event.preventDefault();
+            document.getElementById("databaseSearch").click();
+          }
+        });
+</script>
+</body>
+</html>
